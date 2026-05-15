@@ -1,0 +1,12 @@
+Phần 1 - Phân tích logic
+Nguyên nhân gốc rễ khiến client không thể phân tích dữ liệu từ Web Service nằm ở chỗ:
+
+Phương thức getHotProducts() hiện tại trả về kiểu String.
+
+Bạn đã gọi products.toString(), vốn chỉ tạo ra một chuỗi biểu diễn mặc định của danh sách Java (ví dụ: [Product@1a2b3c, Product@4d5e6f]).
+
+Chuỗi này không phải JSON hợp lệ và không chứa thông tin chi tiết về các thuộc tính id, name, price.
+
+Do đó, khi client cố gắng parse dữ liệu, họ nhận được chuỗi không có cấu trúc hoặc HTML lỗi, dẫn đến việc không thể sử dụng.
+
+ Tóm lại: lỗi nằm ở việc trả về chuỗi toString() thay vì để Spring Boot tự động chuyển đổi danh sách đối tượng thành JSON.

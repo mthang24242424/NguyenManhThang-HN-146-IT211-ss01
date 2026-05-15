@@ -1,0 +1,6 @@
+Phần 1 - Phân tích logic
+POST: Dùng để tạo mới tài nguyên. Nó không idempotent – nghĩa là nếu bạn gửi cùng một request nhiều lần, có thể tạo ra nhiều bản ghi khác nhau. Ví dụ: gửi POST nhiều lần để đăng ký khách hàng mới sẽ tạo ra nhiều khách hàng trùng dữ liệu.
+
+PUT: Dùng để cập nhật hoặc thay thế tài nguyên hiện có. Nó idempotent – nghĩa là nếu bạn gửi cùng một request nhiều lần, kết quả vẫn giống nhau, không tạo thêm bản ghi mới. Ví dụ: PUT để cập nhật thông tin khách hàng với cùng dữ liệu, dù gửi nhiều lần thì bản ghi vẫn chỉ được chỉnh sửa một lần.
+
+ Trong đoạn code ban đầu, bạn dùng POST cho cả tạo mới và cập nhật. Khi cập nhật mà không tìm thấy khách hàng theo ID, logic lại tạo mới bản ghi → dẫn đến dữ liệu trùng lặp, không nhất quán. Đây chính là nguyên nhân gây lỗi.
