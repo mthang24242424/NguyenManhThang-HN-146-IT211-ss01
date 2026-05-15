@@ -1,0 +1,41 @@
+SOAP (Simple Object Access Protocol)
+
+Ưu điểm
+
+Độ tin cậy & tính toàn vẹn dữ liệu: SOAP hỗ trợ chuẩn WS-* (WS-Security, WS-AtomicTransaction) giúp đảm bảo giao dịch phân tán và tính nhất quán dữ liệu – rất quan trọng cho hệ thống ngân hàng cốt lõi.
+
+Bảo mật: Tích hợp tốt với WS-Security, hỗ trợ mã hóa, chữ ký số, xác thực phức tạp.
+
+Khả năng tích hợp: Có thể chạy trên nhiều giao thức (HTTP, SMTP, FTP), dễ kết nối với hệ thống doanh nghiệp truyền thống.
+
+Nhược điểm
+
+Hiệu suất: SOAP thường nặng hơn do sử dụng XML, nhiều overhead.
+
+Độ phức tạp: Phát triển và bảo trì phức tạp, cần nhiều cấu hình.
+
+Tốc độ phát triển: Chậm hơn, không phù hợp với môi trường cần thay đổi nhanh.
+
+REST (Representational State Transfer)
+
+Ưu điểm
+
+Hiệu suất: Nhẹ, thường dùng JSON, tốc độ cao, phù hợp cho ứng dụng web/mobile.
+
+Đơn giản: Dễ phát triển, dễ bảo trì, dễ mở rộng.
+
+Khả năng phát triển nhanh: Linh hoạt, dễ thêm tính năng mới.
+
+Khả năng tích hợp: Tích hợp dễ dàng với frontend, mobile app, microservices.
+
+Nhược điểm
+
+Bảo mật: REST chủ yếu dựa vào HTTPS và token-based auth (OAuth, JWT). Không có chuẩn bảo mật phức tạp như WS-Security.
+
+Giao dịch phân tán: REST không hỗ trợ trực tiếp distributed transactions, khó đảm bảo tính toàn vẹn dữ liệu ở mức cao như SOAP.
+
+ Kết luận lựa chọn
+
+Legacy Core Banking → SOAP: vì cần độ tin cậy, bảo mật cao, hỗ trợ giao dịch phân tán, tuân thủ chuẩn quốc tế.
+
+Microservices mới → REST: vì cần hiệu suất, tốc độ phát triển, khả năng mở rộng và tích hợp dễ dàng với ứng dụng web/mobile.

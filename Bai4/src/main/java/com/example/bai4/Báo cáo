@@ -1,0 +1,49 @@
+Phần 2 – Báo cáo phân tích toàn diện
+Đề xuất kiến trúc
+
+Hệ thống Legacy (Core Banking)
+
+Sử dụng SOAP.
+
+Lý do:
+
+Đảm bảo tính toàn vẹn dữ liệu với WS-AtomicTransaction.
+
+Bảo mật cao với WS-Security, phù hợp chuẩn quốc tế.
+
+Tích hợp tốt với hệ thống doanh nghiệp truyền thống.
+
+Nhược điểm chấp nhận: hiệu suất thấp hơn, phát triển chậm hơn, nhưng phù hợp với yêu cầu nghiệp vụ.
+
+Hệ thống Microservices (Web/Mobile)
+
+Sử dụng REST.
+
+Lý do:
+
+Hiệu suất cao, dữ liệu nhẹ (JSON).
+
+Phát triển nhanh, dễ mở rộng, dễ bảo trì.
+
+Tích hợp dễ dàng với frontend/mobile.
+
+Nhược điểm chấp nhận: bảo mật dựa vào HTTPS + token, không có WS-Security, nhưng đủ cho ứng dụng người dùng cuối.
+
+Glossary – Khái niệm cốt lõi 📘
+SOAP: Giao thức dựa trên XML, hỗ trợ nhiều giao thức truyền tải (HTTP, SMTP, FTP). Có tính stateful, hỗ trợ chuẩn WS-* (WS-Security, WS-AtomicTransaction).
+
+REST: Kiến trúc dựa trên HTTP, thường dùng JSON. Stateless, đơn giản, hiệu suất cao, dễ tích hợp với web/mobile.
+
+Idempotent: Tính chất của một thao tác mà khi thực hiện nhiều lần với cùng dữ liệu thì kết quả không thay đổi (ví dụ: PUT).
+
+WS-Security: Chuẩn bảo mật cho SOAP, hỗ trợ mã hóa, chữ ký số, xác thực.
+
+Distributed Transactions: Giao dịch phân tán, đảm bảo tính nhất quán dữ liệu trên nhiều hệ thống.
+
+Token-based Authentication: Cơ chế bảo mật phổ biến trong REST (OAuth2, JWT).
+
+ Khuyến nghị cuối cùng:
+
+SOAP cho hệ thống Legacy Core Banking để đảm bảo an toàn, chuẩn mực quốc tế, và tính toàn vẹn dữ liệu.
+
+REST cho hệ thống Microservices để đạt hiệu suất, tốc độ phát triển, và khả năng mở rộng.
